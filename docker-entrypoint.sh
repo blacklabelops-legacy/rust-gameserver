@@ -2,6 +2,8 @@
 
 set -o errexit
 
+[[ ${DEBUG} == true ]] && set -x
+
 if [ -n "${RUST_SEED_FILE}" ]; then
   if [ -e "${RUST_SEED_FILE}" ]; then
 	   RUST_SERVER_SEED=`cat ${RUST_SEED_FILE}`
