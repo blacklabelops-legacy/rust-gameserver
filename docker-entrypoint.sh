@@ -9,6 +9,20 @@ if [ -n "${RUST_SEED_FILE}" ]; then
   fi
 fi
 
+if [ -n "${RUST_WORLDSIZE_FILE}" ]; then
+  if [ -e "${RUST_WORLDSIZE_FILE}" ]; then
+	   RUST_SERVER_WORLDSIZE=`cat ${RUST_WORLDSIZE_FILE}`
+     echo "Server Worldsize Override, Worldsize: "${RUST_SERVER_WORLDSIZE}
+  fi
+fi
+
+if [ -n "${RUST_MAXPLAYERS_FILE}" ]; then
+  if [ -e "${RUST_MAXPLAYERS_FILE}" ]; then
+	   RUST_SERVER_MAXPLAYERS=`cat ${RUST_MAXPLAYERS_FILE}`
+     echo "Server Max Players Override, Max Players: "${RUST_SERVER_MAXPLAYERS}
+  fi
+fi
+
 if [ "$1" = 'rust' ]; then
   exec /start.sh
 else

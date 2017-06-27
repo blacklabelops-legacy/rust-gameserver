@@ -184,6 +184,7 @@ $ docker run -d \
     -v backup_volume:/backup \
     -e "VOLUMERIZE_SOURCE=/source/server" \
     -e "VOLUMERIZE_TARGET=file:///backup" \
+    -e "VOLUMERIZE_DUPLICITY_OPTIONS=--include=/source/oxide --include=/source/server --exclude=**" \
     blacklabelops/volumerize
 ~~~~
 
